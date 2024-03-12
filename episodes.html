@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/input.css">
+    <link rel="stylesheet" href="src/output.css">
+</head>
+<body>
+
+    <div class="episodes-main ">
+        <div  class="video-page w-lvw h-lvh bg-slate-700 ">
+          <div class="video-div">
+            <video src="#" class="w-[80vw] h-[60vh] bg-white absolute top-[10%] left-[10%] "></video>
+          </div>
+          <div class="video-player w-[80vw] h-[25vh] bg-black absolute bottom-[3%] left-[10%]">
+          </div>
+          
+          </div>
+          <div class="episode-page w-lvw h-[200vh] bg-slate-700">
+            <div class="episodes-container  w-[80vw] h-[65vh] bg-green-400  absolute left-[10%] rounded-3xl ">
+              <input type="text" placeholder="search episodes" class="placeholder:text-black text-black p-2 bg-transparent  border-2 absolute top-[3%] left-[2%]  outline-none w-[20vw] h-[4vh] rounded-xl">
+              <div class="episodes grid grid-cols-12 grid-rows-12 absolute top-[10%] left-[-2%] w-[80vw] overflow-y-scroll h-[56vh] gap-12 p-10 overflow-x-hidden"> 
+                
+                
+                
+                
+              </div>
+              
+              
+            </div>
+            <div class="comment-continer h-[200vh] w-[100vw]  absolute bg-[#dc143c] top-[180%] border  rounded-3xl">
+              <div class="text text-4xl font-semibold absolute left-5 top-4 text-black">Comment</div>
+              
+              <div class="style-continer  h-[150vh] w-lvw absolute top-16 border rounded-3xl bg-red-300 "></div>
+              <h5>Episode</h5>
+              
+            </div>
+
+          </div>
+    </div>
+    <script> function makeEpButton() {
+      var epClutter = "";
+      for (var i = 1; i <= 150; i++) {
+        var rn = Math.floor(Math.random() * 10);
+        epClutter += `<button class="ep w-[6vw] h-[4vh] grid border-2 rounded-xl p-2 text-sm font-semibold bg-pink-500 text-black">${rn}</button>`;
+      }
+      document.querySelector(".episodes").innerHTML = epClutter;
+    
+      // Select all buttons with the class 'ep'
+      const eps = document.querySelectorAll('.ep');
+    
+      // Loop through each button and attach a 'click' event listener
+      eps.forEach(ep => {
+        ep.addEventListener('click', () => { 
+
+          // Execute code when the button is clicked
+            ep.style.opacity = "0";
+        });
+      });
+    }
+    
+    makeEpButton();
+    const { Gogoanime } = require('@consumet/extensions');
+
+const gogoanime = new Gogoanime();
+
+gogoanime.search("One Piece", (error, data) => {
+    if (error) {
+        console.error(error);
+        return;
+    }
+
+    const ids = data.results.map(anime => anime.id);
+    console.log(ids);
+  });
+   
+//  
+    </script>
+
+</body>
+</html>
