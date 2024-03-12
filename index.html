@@ -13,7 +13,7 @@
   </head>
   <body class="">
     <div class="main">
-      <div class="page1 relative h-lvh w-lvw bg-[#885FFF]">
+      <div class="page1 relative h-lvh w-lvw bg-[#dc143c]">
         <div class="darkdiv hidden w-lvh h-lvh relative z-10"></div>
         <div class="nav absolute inset-0 z-20 flex justify-between p-10">
           <div class="Menu relative z-20 "><nav role="navigation">
@@ -52,7 +52,7 @@
               id="search-icon"
               class="relative z-20 text-2xl mx-5 ri-search-2-line"
             ></i>
-            <a href="#" class="text-black mx-2 bg-transparent border w-[25vw] h-[8vh] uppercase  font-semibold p-[10px] rounded-3xl">login</a>
+            <a href="#" class=" login text-black mx-2 bg-transparent border w-[25vw] h-[8vh] uppercase  font-semibold p-[10px] rounded-3xl">login</a>
               
 
            <a href="signup.html"   class="text-black bg-transparent border w-[25vw] h-[8vh] uppercase font-semibold p-[10px] rounded-3xl ">sign up</a>
@@ -282,12 +282,12 @@ class="h2-container flex absolute top-12 left-20 gap-1 opacity-50"
 
 </div>
 </div>
-<div class="card-container absolute top-32 p-10">
+<div  class="card-container absolute z-50 top-32 p-10">
   <h1 class="my-11 font-bold text-3xl text-[#6c63ff]"></h1>
-  <div
+  <div 
   class="  card w-[180px] h-[240px] object-cover overflow-hidden object-center rounded-2xl  bg-slate-400" 
   >
-  <img class="" src="IMG_0967.jpeg" alt="" />
+  <img class="img"   src="IMG_0988.png" alt="" />
   <h1 class="absolute top-80 font-bold text-[1.7vw]">One piece</h1>
 </div>
 </div>
@@ -357,24 +357,26 @@ function searchbtn() {
       
     } else {
       clicked = 0;
+      document.querySelector(".card-container").style.zIndex = "50";
       document.querySelector(".wrapper").style.display = "none"
       document.querySelector(".darkdiv").style.display = "none"
       document.querySelector("#search-icon").style.color = "white"
-
       document.querySelector("#search1").style.display = "none";
       document.querySelector(".Menu").style.opacity = "1";
+      
     }
   });
 }
 
 
+
+
+function searchFunction() {
+  
+  document.querySelector("#search1").addEventListener("input", function () {
     
- 
-  function searchFunction() {
     
-        document.querySelector("#search1").addEventListener("input", function () {
-        
-        
+    document.querySelector(".card-container").style.zIndex = "0";
             document.querySelector(".wrapper").style.display = "block";
             document.querySelector(".darkdiv").style.display = "block";
             document.querySelector("#search-icon").style.color = "orange";
@@ -387,17 +389,22 @@ function searchbtn() {
 
           });
       }
+   function cardClick() {
+        document.querySelector(".card").addEventListener("click", function() {
+      location.replace("card.html")
+      
+    });
+   }
+
    
+    
+   
+   cardClick();
+   
+searchbtn();
+searchFunction();
 
-function cardClick() {
-document.querySelector(".card").addEventListener("click",function(){
-  alert("heloo")
-})  
-}
-cardClick();
-
-      searchbtn();
-      searchFunction();
+   
     </script>
   </body>
 </html>

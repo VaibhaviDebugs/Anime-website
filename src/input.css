@@ -182,3 +182,29 @@ body
   background-color: black;
   opacity: 50%;
 }
+.content-card-bg{
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.card-page-img{
+  filter: grayscale(100);
+
+}
+
+.genre-list span{
+  padding: 4px;
+  font-weight: 600;
+
+  border-radius: 20px;
+  border: 2px solid white;
+  
+  width: fit-content;
+  height: fit-content;
+  
+   
+}
+
+
+
+
+
